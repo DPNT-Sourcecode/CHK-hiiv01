@@ -37,11 +37,13 @@ def checkout(skus):
                         total_price += offer_value
                     elif offer_value in product_counts and product_counts[offer_value] > 0:
                         product_counts[offer_value] -= 1
+                        total_price += product_price
                     else:
                         break
             total_price += count * product_price
         else:
             total_price += count * product_prices[product]
     return total_price
+
 
 
