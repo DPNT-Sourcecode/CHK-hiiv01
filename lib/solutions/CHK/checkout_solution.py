@@ -27,13 +27,14 @@ def checkout(skus):
 
     for product, count in product_counts.items():
         if product in product_offers:
-            for 
-            offer_quantity_required, offer_price = product_offers[product]
-            offers_applicable = count // offer_quantity_required
-            remaining_products = count % offer_quantity_required
-            total_price += offers_applicable * offer_price
-            total_price += remaining_products * product_prices[product]
+            remaining_product_count = count
+            for offer_quantity_required, offer_price in sorted(product_offers, reverse=True):
+                offers_applicable = count // offer_quantity_required
+                remaining_product_count = count % offer_quantity_required
+                total_price += offers_applicable * offer_price
+                total_price += product_count * product_prices[product]
         else:
             total_price += count * product_prices[product]
     return total_price
+
 
