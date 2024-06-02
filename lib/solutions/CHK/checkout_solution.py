@@ -16,7 +16,7 @@ def checkout(skus):
         "B": (2, 45)
     }
 
-    if not all(product in product_prices for product in skus) or isinstance(skus, str):
+    if not all(product in product_prices for product in skus):
         return -1
 
     product_counts = Counter(skus)
@@ -32,11 +32,3 @@ def checkout(skus):
         else:
             total_price += count * product_prices[product]
     return total_price
-
-
-
-
-
-
-
-
