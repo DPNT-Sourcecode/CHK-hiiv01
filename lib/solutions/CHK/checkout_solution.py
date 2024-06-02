@@ -8,7 +8,8 @@ def checkout(skus):
         "A": 50,
         "B": 30,
         "C": 20,
-        "D": 15
+        "D": 15,
+        "E": 40
     }
 
     special_offer_prices: dict[str: tuple[int, int]] = {
@@ -32,3 +33,4 @@ def checkout(skus):
         else:
             total_price += count * product_prices[product]
     return total_price
+
