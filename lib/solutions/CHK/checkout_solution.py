@@ -33,10 +33,13 @@ def checkout(skus):
                 product_count = count % offer_quantity_required
                 remaining_product_count -= remaining_product_count - product_count
                 total_price += offers_applicable * offer_price
-                total_price += product_count * product_prices[product]
+            total_price += remaining_product_count * product_prices[product]
         else:
             total_price += count * product_prices[product]
+
+    number_free_b = mi
     return total_price
+
 
 
 
