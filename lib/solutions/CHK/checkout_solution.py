@@ -40,10 +40,3 @@ def checkout(skus):
     total_price -= number_free_b * product_prices.get("B", 0)
 
     return total_price
-
-
-
-
-
-
-
