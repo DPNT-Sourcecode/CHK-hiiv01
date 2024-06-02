@@ -30,11 +30,13 @@ def checkout(skus):
             remaining_product_count = count
             for offer_quantity_required, offer_price in sorted(product_offers, reverse=True):
                 offers_applicable = count // offer_quantity_required
-                remaining_product_count = count % offer_quantity_required
+                product_count = count % offer_quantity_required
+                remaining_product_count -= remaining_product_count - product_count
                 total_price += offers_applicable * offer_price
                 total_price += product_count * product_prices[product]
         else:
             total_price += count * product_prices[product]
     return total_price
+
 
 
