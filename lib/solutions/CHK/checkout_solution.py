@@ -12,13 +12,10 @@ def checkout(skus):
         "E": 40
     }
 
-    combination_purchase_prices = {
+    product_offers = {
         "A": [(5, 200), (3, 130)],
-        "B": [(2, 45)]
-    }
-
-    bogof_offers = {
-        "E": (2, "B")
+        "B": [(2, 45)],
+        "E": [(2, "B")]
     }
 
     if not all(product in product_prices for product in skus):
@@ -26,16 +23,15 @@ def checkout(skus):
 
     product_counts = Counter(skus)
 
-    for product, (required_quantity, free_item) in bogof_offers.items():
-        if product in product_counts:
-            number_of_free_items = product_counts[product] // required_quantity
-
-
     total_price: int = 0
 
     for product, count in product_counts.items():
-        if product in combination_purchase_prices:
-            offer_count, offer_price = combination_purchase_prices[product]
+        product_price = product_prices[product]
+        if product in product_offers:
+            offers = product_offers[product]
+            for offer in offers:
+                
+            offer_count, offer_price = product_offers[product]
             number_of_offers = count // offer_count
             remainder = count % offer_count
             total_price += number_of_offers * offer_price
@@ -43,6 +39,7 @@ def checkout(skus):
         else:
             total_price += count * product_prices[product]
     return total_price
+
 
 
 
