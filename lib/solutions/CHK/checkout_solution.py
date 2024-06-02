@@ -28,7 +28,7 @@ def checkout(skus):
     for product, count in product_counts.items():
         if product in product_offers:
             remaining_product_count = count
-            for offer_quantity_required, offer_price in sorted(product_offers, reverse=True):
+            for offer_quantity_required, offer_price in sorted(product_offers[product], reverse=True):
                 offers_applicable = count // offer_quantity_required
                 product_count = count % offer_quantity_required
                 remaining_product_count -= remaining_product_count - product_count
@@ -41,6 +41,7 @@ def checkout(skus):
     total_price -= number_free_b * product_prices.get("B", 0)
 
     return total_price
+
 
 
 
