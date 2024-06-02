@@ -23,8 +23,9 @@ def checkout(skus):
 
     total_price: int = 0
     for product, count in product_counts.items():
-        if product in special_offer_prices:
-            
+
+
+
 
 
 
