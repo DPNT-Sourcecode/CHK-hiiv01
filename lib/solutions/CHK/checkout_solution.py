@@ -1,3 +1,4 @@
+from collections import Counter
 
 
 # noinspection PyUnusedLocal
@@ -15,7 +16,16 @@ def checkout(skus):
         "B": (2, 45)
     }
 
-    if not all(product in product_prices for product in product_prices):
-        
+    if not all(product in product_prices for product in skus):
+        return -1
+
+    product_counts = Counter(skus)
+
+    total_price: int = 0
+    for product, count in product_counts.items():
+        if product in special_offer_prices:
+            
+
+
 
 
