@@ -34,12 +34,13 @@ def checkout(skus):
                 while count >= offer_count:
                     count -= offer_count
                     if isinstance(offer_value, int):
-                        
-            offer_count, offer_price = product_offers[product]
-            number_of_offers = count // offer_count
-            remainder = count % offer_count
-            total_price += number_of_offers * offer_price
-            total_price += remainder * product_prices[product]
+                        total_price += offer_value
+                    elif offer_value in product_counts and product_counts[offer_value] > 0:
+                        product_counts[offer_value] -= 1
+                    else:
+                        break
+            total_price += count * product_price
         else:
             total_price += count * product_prices[product]
     return total_price
+
