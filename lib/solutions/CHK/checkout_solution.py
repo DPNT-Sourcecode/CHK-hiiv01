@@ -29,7 +29,7 @@ def checkout(skus):
         product_price = product_prices[product]
         if product in product_offers:
             offers = product_offers[product]
-            for offer in offers:
+            for offer in sorted(offers, reverse=True):
                 offer_count, offer_value = offer
                 while count >= offer_count:
                     count -= offer_count
@@ -43,4 +43,5 @@ def checkout(skus):
         else:
             total_price += count * product_prices[product]
     return total_price
+
 
