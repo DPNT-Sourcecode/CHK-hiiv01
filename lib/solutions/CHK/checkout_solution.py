@@ -37,8 +37,11 @@ def checkout(skus):
         else:
             total_price += count * product_prices[product]
 
-    number_free_b = mi
+    number_free_b = min(product_counts.get("E", 0) // 2, product_counts.get("B", 0))
+    total_price -= number_free_b * product_prices.get("B", 0)
+
     return total_price
+
 
 
 
