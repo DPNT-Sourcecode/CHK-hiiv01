@@ -4,7 +4,7 @@ from collections import Counter
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    product_prices: dict[str: int] = {
+    product_prices = {
         "A": 50,
         "B": 30,
         "C": 20,
@@ -12,9 +12,10 @@ def checkout(skus):
         "E": 40
     }
 
-    special_offer_prices: dict[str: tuple[int, int]] = {
-        "A": (3, 130),
-        "B": (2, 45)
+    special_offer_prices = {
+        "A": [(5, 200), (3, 130)],
+        "B": [(2, 45)],
+        "E": [(2, "B")]
     }
 
     if not all(product in product_prices for product in skus):
@@ -33,4 +34,5 @@ def checkout(skus):
         else:
             total_price += count * product_prices[product]
     return total_price
+
 
