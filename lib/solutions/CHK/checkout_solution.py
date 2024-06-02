@@ -14,8 +14,7 @@ def checkout(skus):
 
     product_offers = {
         "A": [(5, 200), (3, 130)],
-        "B": [(2, 45)],
-        "E": [(2, 0)]
+        "B": [(2, 45)]
     }
 
     if not all(product in product_prices for product in skus):
@@ -41,6 +40,7 @@ def checkout(skus):
     total_price -= number_free_b * product_prices.get("B", 0)
 
     return total_price
+
 
 
 
