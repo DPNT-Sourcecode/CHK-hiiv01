@@ -29,7 +29,7 @@ def checkout(skus):
     for product, (required_quantity, free_item) in bogof_offers.items():
         if product in product_counts:
             number_of_free_items = product_counts[product] // required_quantity
-            
+
 
     total_price: int = 0
 
@@ -43,6 +43,7 @@ def checkout(skus):
         else:
             total_price += count * product_prices[product]
     return total_price
+
 
 
 
